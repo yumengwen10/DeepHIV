@@ -1,4 +1,3 @@
-#得到了weibull拟合三个参数以后，输入20个label的值得到的，没有多维的probability
 use Statistics::Descriptive;
 use List::Util qw/sum/;
 $wes = 0;
@@ -8,18 +7,16 @@ $wes = 0;
 @newdata = ();
 open(WEI,shift);
 @wei = <WEI>;
-#####去掉一些label对应的weibull参数
 #splice(@wei,2,1);
 #splice(@wei,11,3);
 #splice(@wei,14,3);
-	#这里现在有19套参数
 	for($i==0;$i<=19;$i++){
 		@data = split(/\s/,$wei[$i]);
 		$k[$i] = $data[0];
 		$tao[$i] = $data[2];
 		$lamda[$i] = $data[1];
 	}
-$file = shift;#读取reads的20个参数，不考虑第3，13，14，15，19，20个
+$file = shift;
 open(IN,$file);
 $count = 0;
 $score1 = 0;
@@ -37,16 +34,15 @@ open(OUT3, ">>LARGEST_OMEGA.txt");
 while(<IN>){
 	chomp;
 	@data = split(/\t/,$_);
-	#####去掉对应的输入z值
 	#@newdata = ($data[0],$data[1],$data[3],$data[4],$data[5],$data[6],$data[7],$data[8],$data[9],$data[10],$data[11],$data[15],$data[16]);
 	%key = {};
 	$count += 1;
 	$omega0 = 0;
 	@old_omega = ();
-	for( $i=0;$i<=19;$i++){ ###19个
-		$key{$data[$i]} = $i;    #####如果去掉一些label，就改成newdata
+	for( $i=0;$i<=19;$i++){ 
+		$key{$data[$i]} = $i;   
 	}
-	@data1 = sort { $b <=> $a } @data;  ######如果去掉一些label，这里改成@newdata
+	@data1 = sort { $b <=> $a } @data;  
 	print "AFTER SORT: @data1\n";
 	for( $i=0;$i<=19;$i++){
 		$comp = abs($data1[$i]-$tao[$key{$data1[$i]}]);
@@ -57,14 +53,14 @@ while(<IN>){
 	}
 	print "WEIGHTS: @old_omega\n";
 	for( $i=0;$i<=19;$i++){
-		$omega0 = $omega0 + $data1[$i]*(1-$old_omega[$i]);   ########### NOT EXP WEIGHT V(1-W)
+		$omega0 = $omega0 + $data1[$i]*(1-$old_omega[$i]);   
 	}
 	$new_omega0 = exp($omega0);
 	$get_sum = 0;
 	@weight = ();
 	for ( $i=0;$i<=19;$i++){
-		$weight_omega = $old_omega[$i]*$data1[$i];######### USE EXP WEIGHT TO VW
-		$weight_omega = exp($weight_omega);   ########### ABANDON EXP AFTER VW
+		$weight_omega = $old_omega[$i]*$data1[$i];
+		$weight_omega = exp($weight_omega);   
 		push(@weight,$weight_omega);
 		$get_sum = $get_sum+$weight_omega;
 }
