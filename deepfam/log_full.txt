@@ -1,0 +1,112 @@
+2018-10-02 06:59:59,256 | INFO | __main__ | strainer | 1353 | Load mpa_pkl
+2018-10-02 07:00:17,388 | INFO | __main__ | strainer | 1369 | Get clades from db
+2018-10-02 07:00:21,310 | INFO | __main__ | strainer | 1431 | Add reference genomes
+2018-10-02 07:00:21,313 | DEBUG | __main__ | add_ref_genomes | 621 | add 1 reference genomes
+2018-10-02 07:00:21,313 | DEBUG | __main__ | add_ref_genomes | 622 | Number of samples: 0
+2018-10-02 07:00:21,313 | DEBUG | __main__ | add_ref_genomes | 633 | Number of unique markers: 6
+2018-10-02 07:00:21,313 | DEBUG | __main__ | add_ref_genomes | 637 | load genome contigs
+2018-10-02 07:00:21,313 | DEBUG | __main__ | add_ref_genomes | 670 | build blastdb
+ooSubprocess: makeblastdb -dbtype nucl -title genome_db -out hiv_output/genome_blastn_db_0.338596819967
+
+
+Building a new DB, current time: 10/02/2018 07:00:21
+New DB name:   /home/aprilwen/Documents/HIV_data/hiv_output/genome_blastn_db_0.338596819967
+New DB title:  genome_db
+Sequence type: Nucleotide
+Keep MBits: T
+Maximum file size: 1000000000B
+Adding sequences from FASTA; added 1 sequences in 0.00053215 seconds.
+2018-10-02 07:00:21,360 | DEBUG | __main__ | add_ref_genomes | 683 | blast markers against contigs
+ooSubprocess: blastn -db hiv_output/genome_blastn_db_0.338596819967 -outfmt 6 -evalue 1e-10 -max_target_seqs 1000000000 -num_threads 4
+2018-10-02 07:00:21,431 | DEBUG | __main__ | add_ref_genomes | 726 | Number of samples and genomes: 1
+2018-10-02 07:00:21,431 | INFO | __main__ | strainer | 1462 | Build the tree for s__Human_immunodeficiency_virus_1
+2018-10-02 07:00:21,472 | DEBUG | __main__ | load_sample | 1142 | load hiv_output/hiv_data.markers
+2018-10-02 07:00:21,583 | DEBUG | __main__ | strainer | 1472 | number of samples and reference genomes: 2
+2018-10-02 07:00:21,583 | DEBUG | __main__ | strainer | 1477 | number of markers in sample hiv_data: 6
+2018-10-02 07:00:21,583 | DEBUG | __main__ | strainer | 1477 | number of markers in sample HIV-1: 6
+2018-10-02 07:00:21,583 | DEBUG | __main__ | strainer | 1480 | Filter consensus marker sequences
+2018-10-02 07:00:21,583 | DEBUG | __main__ | filter_sequence | 474 | sample hiv_data, number of markers after N_in_marker: 6
+sample hiv_data, number of markers after marker_strip_length: 6
+2018-10-02 07:00:21,583 | DEBUG | __main__ | filter_sequence | 474 | sample HIV-1, number of markers after N_in_marker: 6
+sample HIV-1, number of markers after marker_strip_length: 6
+2018-10-02 07:00:21,583 | DEBUG | __main__ | strainer | 1489 | remove samples with percentage of markers less than marker_in_clade
+2018-10-02 07:00:21,583 | DEBUG | __main__ | build_tree | 848 | clade: s__Human_immunodeficiency_virus_1
+2018-10-02 07:00:21,584 | DEBUG | __main__ | build_tree | 850 | number of samples: 2
+2018-10-02 07:00:21,584 | DEBUG | __main__ | build_tree | 855 | number of markers of the clade in db: 6
+2018-10-02 07:00:21,584 | DEBUG | __main__ | build_tree | 868 | number of used markers: 6
+2018-10-02 07:00:21,584 | DEBUG | __main__ | build_tree | 872 | fraction of used markers: 1.000000
+2018-10-02 07:00:21,584 | DEBUG | __main__ | build_tree | 876 | align and clean
+2018-10-02 07:00:21,584 | DEBUG | __main__ | build_tree | 897 | start to align_clean for all markers
+2018-10-02 07:00:21,623 | DEBUG | __main__ | align_clean | 747 | align and clean for marker: GeneID:155348
+2018-10-02 07:00:21,623 | DEBUG | __main__ | align_clean | 747 | align and clean for marker: GeneID:155459
+2018-10-02 07:00:21,623 | DEBUG | __main__ | align_clean | 747 | align and clean for marker: GeneID:155807
+2018-10-02 07:00:21,623 | DEBUG | __main__ | align_clean | 747 | align and clean for marker: GeneID:155871
+2018-10-02 07:00:21,650 | DEBUG | __main__ | align_clean | 784 | alignment length of sample hiv_data is 192, 192
+2018-10-02 07:00:21,651 | DEBUG | __main__ | align_clean | 784 | alignment length of sample HIV-1 is 192, 192
+2018-10-02 07:00:21,651 | DEBUG | __main__ | align_clean | 789 | alignment for marker GeneID:155807 is done
+2018-10-02 07:00:21,651 | DEBUG | __main__ | clean_alignment | 546 | marker length: 192
+2018-10-02 07:00:21,660 | DEBUG | __main__ | align_clean | 784 | alignment length of sample hiv_data is 479, 479
+2018-10-02 07:00:21,661 | DEBUG | __main__ | align_clean | 784 | alignment length of sample HIV-1 is 479, 479
+2018-10-02 07:00:21,661 | DEBUG | __main__ | align_clean | 789 | alignment for marker GeneID:155459 is done
+2018-10-02 07:00:21,661 | DEBUG | __main__ | clean_alignment | 546 | marker length: 479
+2018-10-02 07:00:21,678 | DEBUG | __main__ | clean_alignment | 571 | length after gap_in_trailing_col: 192
+2018-10-02 07:00:21,694 | DEBUG | __main__ | clean_alignment | 582 | length after gap_in_internal_col: 192
+2018-10-02 07:00:21,705 | DEBUG | __main__ | clean_alignment | 595 | length after N_col: 192
+2018-10-02 07:00:21,706 | DEBUG | __main__ | align_clean | 805 | cleaning for marker GeneID:155807 is done
+2018-10-02 07:00:21,706 | DEBUG | __main__ | align_clean | 747 | align and clean for marker: GeneID:155945
+2018-10-02 07:00:21,717 | DEBUG | __main__ | clean_alignment | 571 | length after gap_in_trailing_col: 479
+2018-10-02 07:00:21,730 | DEBUG | __main__ | align_clean | 784 | alignment length of sample hiv_data is 2494, 2494
+2018-10-02 07:00:21,730 | DEBUG | __main__ | align_clean | 784 | alignment length of sample HIV-1 is 2494, 2494
+2018-10-02 07:00:21,730 | DEBUG | __main__ | align_clean | 789 | alignment for marker GeneID:155871 is done
+2018-10-02 07:00:21,730 | DEBUG | __main__ | clean_alignment | 546 | marker length: 2494
+2018-10-02 07:00:21,736 | DEBUG | __main__ | align_clean | 784 | alignment length of sample hiv_data is 149, 149
+2018-10-02 07:00:21,736 | DEBUG | __main__ | align_clean | 784 | alignment length of sample HIV-1 is 149, 149
+2018-10-02 07:00:21,736 | DEBUG | __main__ | align_clean | 789 | alignment for marker GeneID:155945 is done
+2018-10-02 07:00:21,736 | DEBUG | __main__ | clean_alignment | 546 | marker length: 149
+2018-10-02 07:00:21,753 | DEBUG | __main__ | clean_alignment | 571 | length after gap_in_trailing_col: 149
+2018-10-02 07:00:21,754 | DEBUG | __main__ | clean_alignment | 582 | length after gap_in_internal_col: 479
+2018-10-02 07:00:21,761 | DEBUG | __main__ | clean_alignment | 582 | length after gap_in_internal_col: 149
+2018-10-02 07:00:21,769 | DEBUG | __main__ | clean_alignment | 595 | length after N_col: 149
+2018-10-02 07:00:21,769 | DEBUG | __main__ | align_clean | 805 | cleaning for marker GeneID:155945 is done
+2018-10-02 07:00:21,770 | DEBUG | __main__ | align_clean | 747 | align and clean for marker: GeneID:156110
+2018-10-02 07:00:21,777 | DEBUG | __main__ | clean_alignment | 595 | length after N_col: 479
+2018-10-02 07:00:21,778 | DEBUG | __main__ | align_clean | 805 | cleaning for marker GeneID:155459 is done
+2018-10-02 07:00:21,798 | DEBUG | __main__ | align_clean | 784 | alignment length of sample hiv_data is 521, 521
+2018-10-02 07:00:21,798 | DEBUG | __main__ | align_clean | 784 | alignment length of sample HIV-1 is 521, 521
+2018-10-02 07:00:21,799 | DEBUG | __main__ | align_clean | 789 | alignment for marker GeneID:156110 is done
+2018-10-02 07:00:21,799 | DEBUG | __main__ | clean_alignment | 546 | marker length: 521
+2018-10-02 07:00:21,840 | DEBUG | __main__ | align_clean | 784 | alignment length of sample hiv_data is 4207, 4207
+2018-10-02 07:00:21,840 | DEBUG | __main__ | align_clean | 784 | alignment length of sample HIV-1 is 4207, 4207
+2018-10-02 07:00:21,840 | DEBUG | __main__ | align_clean | 789 | alignment for marker GeneID:155348 is done
+2018-10-02 07:00:21,840 | DEBUG | __main__ | clean_alignment | 546 | marker length: 4207
+2018-10-02 07:00:21,870 | DEBUG | __main__ | clean_alignment | 571 | length after gap_in_trailing_col: 521
+2018-10-02 07:00:21,905 | DEBUG | __main__ | clean_alignment | 582 | length after gap_in_internal_col: 521
+2018-10-02 07:00:21,930 | DEBUG | __main__ | clean_alignment | 595 | length after N_col: 521
+2018-10-02 07:00:21,931 | DEBUG | __main__ | align_clean | 805 | cleaning for marker GeneID:156110 is done
+2018-10-02 07:00:21,991 | DEBUG | __main__ | clean_alignment | 571 | length after gap_in_trailing_col: 2494
+2018-10-02 07:00:22,158 | DEBUG | __main__ | clean_alignment | 582 | length after gap_in_internal_col: 2494
+2018-10-02 07:00:22,251 | DEBUG | __main__ | clean_alignment | 571 | length after gap_in_trailing_col: 4207
+2018-10-02 07:00:22,271 | DEBUG | __main__ | clean_alignment | 595 | length after N_col: 2494
+2018-10-02 07:00:22,271 | DEBUG | __main__ | align_clean | 805 | cleaning for marker GeneID:155871 is done
+2018-10-02 07:00:22,515 | DEBUG | __main__ | clean_alignment | 582 | length after gap_in_internal_col: 4207
+2018-10-02 07:00:22,860 | DEBUG | __main__ | clean_alignment | 595 | length after N_col: 4207
+2018-10-02 07:00:22,861 | DEBUG | __main__ | align_clean | 805 | cleaning for marker GeneID:155348 is done
+2018-10-02 07:00:22,945 | DEBUG | __main__ | build_tree | 927 | number of markers after deleting empty markers: 6
+2018-10-02 07:00:22,945 | DEBUG | __main__ | build_tree | 934 | fraction of used markers after deleting empty markers: 1.000000
+2018-10-02 07:00:22,945 | DEBUG | __main__ | build_tree | 947 | full sequence length before long_gap_length: 8042
+2018-10-02 07:00:23,819 | DEBUG | __main__ | build_tree | 985 | full sequence length after long_gap_length: 8042
+2018-10-02 07:00:23,819 | DEBUG | __main__ | build_tree | 1012 | number of samples before gap_in_sample: 2
+2018-10-02 07:00:23,819 | DEBUG | __main__ | build_tree | 1028 | number of samples after gap_in_sample: 2
+2018-10-02 07:00:23,821 | DEBUG | __main__ | build_tree | 1062 | polymorphic file: hiv_output/s__Human_immunodeficiency_virus_1.polymorphic
+2018-10-02 07:00:23,828 | DEBUG | __main__ | build_tree | 1087 | alignment file: hiv_output/s__Human_immunodeficiency_virus_1.fasta
+2018-10-02 07:00:23,829 | DEBUG | __main__ | build_tree | 1103 | tree file: s__Human_immunodeficiency_virus_1.tree
+ooSubprocess: raxmlHPC-PTHREADS-SSE3 -s /home/aprilwen/Documents/HIV_data/hiv_output/s__Human_immunodeficiency_virus_1.fasta -w /home/aprilwen/Documents/HIV_data/hiv_output -n s__Human_immunodeficiency_virus_1.tree -p 1234 -m GTRCAT -T 4
+Warning, you specified a working directory via "-w"
+Keep in mind that RAxML only accepts absolute path names, not relative ones!
+
+RAxML can't, parse the alignment file as phylip file 
+it will now try to parse it as FASTA file
+
+TOO FEW SPECIES
+2018-10-02 07:00:23,852 | INFO | __main__ | build_tree | 1132 | Cannot build the tree! The number of samples is too few or there is some error with raxmlHMP
+2018-10-02 07:00:23,855 | INFO | __main__ | strainer | 1535 | Finished!
